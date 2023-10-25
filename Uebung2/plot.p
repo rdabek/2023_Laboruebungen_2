@@ -13,10 +13,10 @@ set grid
 
 set style data linespoints
 
-plot "isotherm_25.dat" using 1:2 title "T = 25 °C", \
-     "isotherm_35.dat" using 1:2 title "T = 35 °C", \
-     "isotherm_45.dat" using 1:2 title "T = 45 °C", \
-     "isotherm_50.dat" using 1:2 title "T = 50 °C"
+plot "messdaten/isotherm_25.dat" using 1:2 title "T = 25 °C", \
+     "messdaten/isotherm_35.dat" using 1:2 title "T = 35 °C", \
+     "messdaten/isotherm_45.dat" using 1:2 title "T = 45 °C", \
+     "messdaten/isotherm_50.dat" using 1:2 title "T = 50 °C"
 
 # Isochore Messdaten
 set terminal png
@@ -33,6 +33,6 @@ set grid
 
 set style data linespoints
 
-plot "isochor_20.dat" using 1:2 title "V = 6280 mm^3 (20mm)", \
-     "isochor_30.dat" using 1:2 title "V = 9420 mm^3 (30mm)", \
-     "isochor_40.dat" using 1:2 title "V = 12560 mm^3 (40mm)"
+plot "messdaten/isochor_20.dat" using 1:2 title "V = 6280 mm^3 (20mm)", \
+     "messdaten/isochor_30.dat" using 1:2 title "V = 9420 mm^3 (30mm)", \
+     "messdaten/isochor_40.dat" using 1:2 title "V = 12560 mm^3 (40mm)"
