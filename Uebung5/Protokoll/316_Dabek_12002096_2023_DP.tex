@@ -1,0 +1,133 @@
+\documentclass{article}
+
+% ----------------------------------------------------------------
+% Packages
+\usepackage{graphicx}
+\usepackage{caption}                    % for captions
+\usepackage[ngerman]{babel}             % german language support
+\usepackage[T1]{fontenc}                % fix non asci letter encoding
+\usepackage[nottoc,numbib]{tocbibind}   % for numbering list of figures
+                                        % and images and equations
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+% Setup bibliography references style
+\bibliographystyle{ieeetr}
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+% Make table of equations
+% \newcommand{\listequationname}{Formelverzeichnis}
+% \newlistof{equation}{eq}
+% \newcommand{\equations}[1]{%
+%     \refstepcounter{equation}
+%     \par\noindent\textbf{Formel \theequation. #1}
+%     \addcontentsline{eq}{equation}{
+%         \protect\numberline{\thechapter.\theequation}#1
+%     }
+%     \par
+% }
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+% Add numbering to list of figures, list of tables
+\renewcommand{\listoffigures}{%
+    \begingroup
+    \let\section\subsection % change section to be subsection
+    \tocsection
+    \tocfile{\listfigurename}{lof}
+    \endgroup
+}
+\renewcommand{\listoftables}{%
+    \begingroup
+    \let\section\subsection % change section to be subsection
+    \tocsection
+    \tocfile{\listtablename}{lot}
+    \endgroup
+}
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+% Title, author and date
+\title{\textbf{Laborprotokoll Drehpendel}}
+\author{
+    Rafał Dąbek \\
+    Lucas Hörl
+}
+\date{
+    \today \\
+    \textit{Versuchsdurchführung am 29. November 2023}
+}
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+% Make links in the document
+\usepackage{hyperref}                   % for links
+% Setup links
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+% ----------------------------------------------------------------
+
+\begin{document}
+
+% First page with title, author and date
+\maketitle
+\clearpage
+
+% Second page with table of contents
+\tableofcontents
+\clearpage
+
+\section{Einleitung}
+\clearpage
+
+\section{Versuchsaufbau}
+\clearpage
+
+\section{Theoretische Grundlagen des Pendels}
+\subsection{Differentialgleichung}
+% \noteworthy{a=b}{Pendelgleichung}
+\cite{texbook}
+\subsection{Die Lösung der homogenen Differentialgleichung}
+\subsubsection{Schwingung}
+\subsubsection{Gedämpfte Schwingung}
+\subsubsection{Aperiodischer Grenzfall}
+\subsubsection{Kriechfall}
+\subsection{Die Lösung der inhomogenen Differentialgleichung}
+\subsubsection{Resonanzkurven}
+\subsection{Schwebung}
+\clearpage
+
+\section{Messungen}
+\begin{center}
+\begin{tabular}{c c c}
+    \hline
+    1st & 2nd & 3rd \\
+    \hline
+    A & B & C \\
+    D & E & F \\
+    \hline
+\end{tabular}
+\captionof{table}{\label{demo-table}Some table.}
+
+\begin{figure}
+    \caption{This is a caption for a non-existing image}
+    \end{figure}
+\end{center}
+\clearpage
+
+\section{Diskussion}
+\clearpage
+
+\section{Anhang}
+\subsection{Verwendete Geräte}
+\listoffigures
+\listoftables
+\bibliography{refs.bib}
+
+\end{document}

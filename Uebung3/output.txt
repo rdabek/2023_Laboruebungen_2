@@ -1,0 +1,33 @@
+Interferometrie:
+
+Messung1: 
+s: 7, m: 14, dls: 633, sigma i: 50.5511
+s: 10, m: 22, dls: 696.3, sigma i: 36.1212
+s: 8, m: 15, dls: 593.438, sigma i: 43.6933
+s: 9, m: 16, dls: 562.667, sigma i: 38.4835
+s: 10, m: 17, dls: 538.05, sigma i: 34.3898
+s: 11, m: 16, dls: 460.364, sigma i: 30.616
+Mittelwert dls: 580.636, Standardabweichung: 16.1333
+
+
+Messung3: 
+s: 14, m: 29, lambda: 560.614, sigma i: 22.5474
+s: 12, m: 22, lambda: 633.421, sigma i: 29.0326
+s: 11, m: 23, lambda: 555.391, sigma i: 28.486
+s: 13, m: 25, lambda: 603.862, sigma i: 25.7702
+s: 13, m: 26, lambda: 580.636, sigma i: 24.9681
+Mittelwert lambda: 586.785, Standardabweichung: 11.7478
+
+Messung4: 
+m: 157, kl: 3.14, sigmai: 0.1
+m: 203, kl: 4.06, sigmai: 0.1
+m: 249, kl: 4.98, sigmai: 0.1
+m: 220, kl: 4.4, sigmai: 0.1
+Standardabweichung: 0.05
+
+Messung5: 
+dlambda: 0.614851
+dlambda: 0.555349
+dlambda: 0.521692
+dlambda: 0.506348
+dlambda: 0.717326
