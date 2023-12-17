@@ -52,5 +52,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "latex-workshop.latex.outDir": "%DIR%/build"
 }

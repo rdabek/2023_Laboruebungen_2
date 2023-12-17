@@ -2,31 +2,28 @@
 
 % ----------------------------------------------------------------
 % Packages
+\usepackage{lipsum}
+\usepackage[style=ieee, defernumbers, backend=biber]{biblatex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{caption}                    % for captions
 \usepackage[ngerman]{babel}             % german language support
 \usepackage[T1]{fontenc}                % fix non asci letter encoding
 \usepackage[nottoc,numbib]{tocbibind}   % for numbering list of figures
                                         % and images and equations
+% \usepackage[titles]{tocloft}            % for custom list of equations
 % ----------------------------------------------------------------
 
 % ----------------------------------------------------------------
 % Setup bibliography references style
-\bibliographystyle{ieeetr}
+\addbibresource{literatur.bib}
 % ----------------------------------------------------------------
 
 % ----------------------------------------------------------------
-% Make table of equations
-% \newcommand{\listequationname}{Formelverzeichnis}
-% \newlistof{equation}{eq}
-% \newcommand{\equations}[1]{%
-%     \refstepcounter{equation}
-%     \par\noindent\textbf{Formel \theequation. #1}
-%     \addcontentsline{eq}{equation}{
-%         \protect\numberline{\thechapter.\theequation}#1
-%     }
-%     \par
-% }
+% Make my custom list of equations
+% TODO!!!
 % ----------------------------------------------------------------
 
 % ----------------------------------------------------------------
@@ -49,13 +46,27 @@
 
 % ----------------------------------------------------------------
 % Title, author and date
-\title{\textbf{Laborprotokoll Drehpendel}}
+\title{
+    \LARGE \textbf{Laborübung II}
+    \vspace{0.5cm}
+    \hrule height 2pt
+    \vspace{0.5cm}
+    \textbf{Laborprotokoll Drehpendel}
+    \vspace{0.5cm}
+    \hrule height 2pt
+    \vspace*{15\baselineskip}
+    {
+        \small Gruppenmitglieder: Lucas Hörl und Rafał Dąbek
+        \\
+		Betreuer: Prof. Johann Laimer
+    }
+
+}
 \author{
-    Rafał Dąbek \\
-    Lucas Hörl
+    \textbf{Rafał Dąbek}
 }
 \date{
-    \today \\
+    fertiggestellt am \today \\
     \textit{Versuchsdurchführung am 29. November 2023}
 }
 % ----------------------------------------------------------------
@@ -84,23 +95,47 @@
 \clearpage
 
 \section{Einleitung}
-\clearpage
-
-\section{Versuchsaufbau}
-\clearpage
+Dieses Laborprotokoll befasst sich mit der Ausmessung charakteristischer Größen eines Drehpendels nach Pohl. Das Pohlsche Rad
+ermöglicht die Bestimmung der Eigenschaften des Systems bei verschiedenen Dämpfungen und Erregerfrequenzen.
+Die Versuche umfassen die Bestimmung der Eigenfrequenz des Systems, die Messung an freien und erzwungenen Schwingungen bei verschiedenen Dämpfungen,
+sowie auch die Bestimmung einer Resonanzkurve.
 
 \section{Theoretische Grundlagen des Pendels}
 \subsection{Differentialgleichung}
-% \noteworthy{a=b}{Pendelgleichung}
-\cite{texbook}
-\subsection{Die Lösung der homogenen Differentialgleichung}
-\subsubsection{Schwingung}
+Die mathematische Beschreibung des Pendels erfolgt über eine Gleichung der Drehmomente, welche durch die folgende
+Differentialgleichung 2. Ordnung beschrieben werden kann:
+\begin{equation} \label{eq:pendel}
+    J \cdot \ddot \varphi(t) + r \cdot \dot \varphi(t) + D \cdot \varphi(t) = M_{0} \cdot cos(\omega_{E} \cdot t)
+\end{equation}
+Die einzelnen Terme stehen für:
+\begin{flushleft}
+\begin{tabular}{lc@{ }l}
+    $\varphi(t)$ & ... & die Auslenkung (Winkel) des Pendels\\
+    $\dot \varphi(t)$ & ... & die Winkelgeschwindigkeit des Pendels\\
+    $\ddot \varphi(t)$ & ... & die Winkelbeschleunigung des Pendels\\
+    $J$ & ... & das Trägheitsmoment des Pendelkörpers\\
+    $r$ & ... & der Dämpfungskoeffizient (Wirbelstrombremse)\\
+    $D$ & ... & die Winkelrichtgröße\\
+    $M_{0}$ & ... & die Amplitude des Drehmoments des Erregers\\
+    $\omega_{E}$ & ... & die Erregerfrequenz
+\end{tabular}
+\end{flushleft}
+Das Trägheitsmoment wird definiert als $J = \rho \cdot \int_{V}^{} r^{2} dV$.
+\cite{w:traegheit}
+
+\subsection{Die Lösung der Differentialgleichung}
+\subsubsection{Freie Schwingung}
+Die freie Schwingung findet statt, wenn der Dämpfungskoeffizient wegfällt, d.h. $r = 0$.
 \subsubsection{Gedämpfte Schwingung}
 \subsubsection{Aperiodischer Grenzfall}
 \subsubsection{Kriechfall}
 \subsection{Die Lösung der inhomogenen Differentialgleichung}
 \subsubsection{Resonanzkurven}
 \subsection{Schwebung}
+\clearpage
+
+\section{Versuchsaufbau}
+\cite{w:pohl}
 \clearpage
 
 \section{Messungen}
@@ -128,6 +163,8 @@
 \subsection{Verwendete Geräte}
 \listoffigures
 \listoftables
-\bibliography{refs.bib}
+\printbibheading[title={Literaturverzeichnis},heading=subbibnumbered]
+% \printbibliography[type=book,heading=subbibliography,title={\indent \textit{Bücher}}]
+\printbibliography[type=online,heading=subbibliography,title={\indent \textit{Webseiten}}]
 
 \end{document}
