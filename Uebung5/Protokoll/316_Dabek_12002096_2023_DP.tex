@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{caption}                    % for captions
 \usepackage[ngerman]{babel}             % german language support
 \usepackage[T1]{fontenc}                % fix non asci letter encoding
@@ -104,9 +105,9 @@ sowie auch die Bestimmung einer Resonanzkurve.
 \subsection{Differentialgleichung}
 Die mathematische Beschreibung des Pendels erfolgt über eine Gleichung der Drehmomente, welche durch die folgende
 Differentialgleichung 2. Ordnung beschrieben werden kann:
-\begin{equation} \label{eq:pendel}
+\begin{gather} \label{eq:pendel}
     J \cdot \ddot \varphi(t) + r \cdot \dot \varphi(t) + D \cdot \varphi(t) = M_{0} \cdot cos(\omega_{E} \cdot t)
-\end{equation}
+\end{gather}
 Die einzelnen Terme stehen für:
 \begin{flushleft}
 \begin{tabular}{lc@{ }l}
@@ -125,7 +126,35 @@ Das Trägheitsmoment wird definiert als $J = \rho \cdot \int_{V}^{} r^{2} dV$.
 
 \subsection{Die Lösung der Differentialgleichung}
 \subsubsection{Freie Schwingung}
-Die freie Schwingung findet statt, wenn der Dämpfungskoeffizient wegfällt, d.h. $r = 0$.
+Die freie Schwingung findet statt, wenn der Dämpfungsterm und Erregerterm wegfallen, d.h. $r = 0$ und $M_{0} = 0$.
+Die Differentialgleichung lautet dann:
+\begin{gather} \label{eq:freie_schwingung}
+    J \cdot \ddot \varphi(t) + D \cdot \varphi(t) = 0\\
+    \ddot \varphi(t) + \frac{D}{J} \cdot \varphi(t) = 0
+\end{gather}
+Die Lösung erfolgt durch den Exponentialansatz:
+\begin{gather} \label{eq:freie_schwingung_ansatz}
+    \varphi(t) = A \cdot e^{\lambda \cdot t}\\
+    \ddot \varphi(t) = \lambda^{2} \cdot A \cdot e^{\lambda \cdot t}
+\end{gather}
+Dadurch entsteht die charakteristische Gleichung:
+\begin{gather} \label{eq:freie_schwingung_loesung}
+    \lambda^{2} + \lambda \cdot \frac{D}{J} = 0\\
+    \lambda = \pm i \cdot \sqrt{\frac{D}{J}}
+\end{gather}
+Sehr praktisch ist hier $\omega_{0}$ zu definieren als $\omega_{0} = \sqrt{\frac{D}{J}}$, bzw. $\omega_{0}^{2} = \frac{D}{J}$.
+Somit ist $\lambda = \pm i \cdot \omega_{0}$. Die Lösung ist dann
+$\varphi(t) = A_{1} \cdot e^{-i \omega_{0} \cdot t} + A_{2} \cdot e^{i \omega_{0} \cdot t}$.
+Durch die Eulersche Identität $e^{i \cdot \varphi} = cos(\varphi) + i \cdot sin(\varphi)$ kann auf die Form
+$\varphi(t) = B_{1} \cdot cos(\omega_{0} \cdot t) + B_{2} \cdot sin(\omega_{0} \cdot t)$ umgeformt werden. Mit den Anfangsbedingungen
+\begin{gather} \label{eq:freie_schwingung_loesung}
+    \varphi(t = 0) = \varphi_{0}\\
+    \dot \varphi(t = 0) = 0
+\end{gather}
+ergibt sich die Lösung:
+\begin{gather} \label{eq:freie_schwingung_loesung}
+    \varphi(t) = \varphi_{0} \cdot cos(\omega_{0} \cdot t)
+\end{gather}
 \subsubsection{Gedämpfte Schwingung}
 \subsubsection{Aperiodischer Grenzfall}
 \subsubsection{Kriechfall}
