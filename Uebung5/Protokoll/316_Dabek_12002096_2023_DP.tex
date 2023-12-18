@@ -156,6 +156,7 @@ ergibt sich die Lösung:
     \varphi(t) = \varphi_{0} \cdot cos(\omega_{0} \cdot t)
 \end{gather}
 \subsubsection{Gedämpfte Schwingung}
+
 \subsubsection{Aperiodischer Grenzfall}
 \subsubsection{Kriechfall}
 \subsection{Die Lösung der inhomogenen Differentialgleichung}
@@ -164,10 +165,52 @@ ergibt sich die Lösung:
 \clearpage
 
 \section{Versuchsaufbau}
-\cite{w:pohl}
+Der Versuchsaufbau bestand aus einem Drehpendel nach Pohl der Firma Leybold \ref{fig:versuchsaufbau}.
+Für die Messungen stand das Programm CASSY auf einem Labor-PC zur Verfügung.
+Das Messystem erfasste automatisch über die entsprechende Schnittstellen \ref{fig:schnittstelle}
+nach dem Start einer Aufzeichnung die Bewegung des Pendelkörpers
+über den BMW (Bewegungsmesswandler). Diese Daten wurden dann in der CASSY-Software
+und in Microsoft Excel ausgewertet.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{bilder/drehpendel.jpg}
+    \caption{Ein Foto des Versuchsaufbaus}
+    \label{fig:versuchsaufbau}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{bilder/sensor_cassy.jpg}
+    \caption{Ein Foto der Schnittstelle}
+    \label{fig:schnittstelle}
+\end{figure}
+
+Der Aufbau des Pendels \cite{w:pohl} besteht aus einem Kupferrad, welches das Pendel simulieren soll.
+Das Kupferrad ist über eine Nabe an eine Feder verbunden. Diese bewirkt das entsprechende
+Rückstellmoment. Außerdem kann das Pendel über einen Hebel, der exzentrisch an einem
+elektrischen Motor befestigt ist, angetrieben werden. Letzendlich kann mit einer Wirbelstrombremse
+eine zusätzliche Dämpfung eingestellt werden.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{}
+    \caption{Das Pendel nach Pohl}
+    \label{fig:pendel}
+\end{figure}
 \clearpage
 
-\section{Messungen}
+\section{Versuche}
+\subsection{Bestimmung der Eigenfrequenz}
+\subsubsection{Durchführung}
+Das Ziel dieses Versuches war es die Eigenfrequenz und die Abklingkonstante zu
+bestimmen. Die Dämpfung sollte dabei nicht vorhanden sein, d.h. die Wirbelstrombremse
+sollte ausgeschaltet bleiben. Die Bestimmung der Eigenfrequenz erfolgte über
+die Messung der Zeit $\delta t$ über mehrere Perioden n. Die Frequenz wird dann
+folgendermaßen berechnet: $f = \frac{n}{\delta t}$.
+
+Die Abklingkonstante $\delta$ konnte mittels CASSY aus dem Wert $B$ folgend
+bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen werden konnte.
+\subsubsection{Messdaten}
+
+\subsubsection{Auswertung}
 \begin{center}
 \begin{tabular}{c c c}
     \hline
@@ -179,10 +222,21 @@ ergibt sich die Lösung:
 \end{tabular}
 \captionof{table}{\label{demo-table}Some table.}
 
-\begin{figure}
-    \caption{This is a caption for a non-existing image}
-    \end{figure}
-\end{center}
+\subsection{Schwingung bei verschiedenen Dämpfungen}
+\subsubsection{Durchführung}
+\subsubsection{Messdaten}
+\subsubsection{Auswertung}
+
+\subsection{Zusammenhang Erregerfrequenz und Erregerspannung}
+\subsubsection{Durchführung}
+\subsubsection{Messdaten}
+\subsubsection{Auswertung}
+
+\subsection{Resonanzkurve}
+\subsubsection{Durchführung}
+\subsubsection{Messdaten}
+\subsubsection{Auswertung}
+
 \clearpage
 
 \section{Diskussion}
@@ -190,6 +244,11 @@ ergibt sich die Lösung:
 
 \section{Anhang}
 \subsection{Verwendete Geräte}
+\begin{itemize}
+    \item Bewegungsmesswandler der Firma Leybold, Type 524 082
+    \item Software Cassy Lab der Firma Leybold, Type 524 220
+    \item Drehpendel nach Pohl der Firma Leybold, Type 34600-B2
+\end{itemize}
 \listoffigures
 \listoftables
 \printbibheading[title={Literaturverzeichnis},heading=subbibnumbered]
