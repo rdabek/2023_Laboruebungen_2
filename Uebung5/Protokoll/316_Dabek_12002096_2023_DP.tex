@@ -3,9 +3,9 @@
 % ----------------------------------------------------------------
 % Packages
 \usepackage{lipsum}
+\usepackage[utf8]{inputenc}
 \usepackage[style=ieee, defernumbers, backend=biber]{biblatex}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{caption}                        % for captions
@@ -160,8 +160,31 @@ ergibt sich die Lösung:
 \end{gather}
 \subsubsection{Gedämpfte Schwingung}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bilder/schwingung_gedampft.png}
+    \caption{Gedämpfte Schwingung}
+    \label{fig:schw_ged}
+\end{figure}
+
 \subsubsection{Aperiodischer Grenzfall}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bilder/aperiodischer_grenzfall.png}
+    \caption{Aperiodischer Grenzfall}
+    \label{fig:aperiod}
+\end{figure}
+
 \subsubsection{Kriechfall}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bilder/kriechfall.png}
+    \caption{Kriechfall}
+    \label{fig:kriech}
+\end{figure}
+
 \subsection{Die Lösung der inhomogenen Differentialgleichung}
 \subsubsection{Resonanzkurven}
 
@@ -173,14 +196,14 @@ nach dem Start einer Aufzeichnung die Bewegung des Pendelkörpers
 über den BMW (Bewegungsmesswandler). Diese Daten wurden dann in der CASSY-Software
 und in Microsoft Excel ausgewertet.
 
-\begin{figure}[H][H]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel.jpg}
     \caption{Ein Foto des Versuchsaufbaus}
     \label{fig:versuchsaufbau}
 \end{figure}
 
-\begin{figure}[H][H]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/sensor_cassy.jpg}
     \caption{Ein Foto der Schnittstelle}
@@ -193,7 +216,7 @@ Rückstellmoment. Außerdem kann das Pendel über einen Hebel, der exzentrisch a
 elektrischen Motor befestigt ist, angetrieben werden. Letzendlich kann mit einer Wirbelstrombremse
 eine zusätzliche Dämpfung eingestellt werden.
 
-\begin{figure}[H][H]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel_pohl.png}
     \caption{Das Pendel nach Pohl \cite{w:pohl_drehpendel}}
@@ -210,26 +233,51 @@ die Messung der Zeit $\Delta t$ über mehrere Perioden n. Die Frequenz wird dann
 folgendermaßen berechnet: $f = \frac{n}{\Delta t}$.
 
 Die Abklingkonstante $\delta$ konnte mittels CASSY aus dem Wert $B$ folgend
-bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen werden konnte.
+bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen werden konnte. $B$ berechnet CASSY aus der
+Einhüllenden der Schwingung.
+
+Das Dämpfungsdekrement $k$ wird über die Formel $k^n = \frac{A_1}{A_{n+1}}$ bestimmt. Die Abklingskonstante $\delta$ ist
+mit dem Dämpfungsdekrement $k$ folgend verknüpft: $\delta = \frac{ln(k)}{T}$.
 \subsubsection{Messdaten}
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
     \hline
-    $\Delta t$ (s) & $n$ & $T$ (s) & $f$ (Hz) & $A_{n+1}$ (rad) & $A_1$ (rad) & $B$ (s) & $\delta_{CASSY}$ (s) \\
+    $\Delta t$ (s) & $n$ & $T$ (s) & $f$ (Hz) & $A_{n+1}$ (rad) & $A_1$ (rad) & $B$ (s) & $\delta_{CASSY}$ (s) & k\\
     \hline
-    5.23 & 3 & 1.740 & 0.574 & 0.19 & 0.45 & 6.19 & 0.16 \\
-    5.15 & 3 & 1.717 & 0.583 & 0.18 & 0.43 & 6.27 & 0.16 \\
-    5.11 & 3 & 1.703 & 0.587 & 0.16 & 0.42 & 5.56 & 0.18 \\
-    5.16 & 3 & 1.720 & 0.581 & 0.18 & 0.43 & 6.28 & 0.16 \\
-    5.14 & 3 & 1.713 & 0.584 & 0.18 & 0.44 & 6.60 & 0.15 \\
-    5.11 & 3 & 1.703 & 0.587 & 0.19 & 0.44 & 6.79 & 0.15 \\
+    5.23 & 3 & 1.740 & 0.574 & 0.19 & 0.45 & 6.19 & 0.16 & 0.75 \\
+    5.15 & 3 & 1.717 & 0.583 & 0.18 & 0.43 & 6.27 & 0.16 & 0.75 \\
+    5.11 & 3 & 1.703 & 0.587 & 0.16 & 0.42 & 5.56 & 0.18 & 0.73 \\
+    5.16 & 3 & 1.720 & 0.581 & 0.18 & 0.43 & 6.28 & 0.16 & 0.75 \\
+    5.14 & 3 & 1.713 & 0.584 & 0.18 & 0.44 & 6.60 & 0.15 & 0.74 \\
+    5.11 & 3 & 1.703 & 0.587 & 0.19 & 0.44 & 6.79 & 0.15 & 0.76 \\
     \hline
     \end{tabular}
     \caption{Bestimmung der Eigenfrequenz}
     \label{tab:eigenfrequenz}
 \end{table}
-\subsubsection{Auswertung}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bilder/eigenfreq_messdaten.png}
+    \caption{Messung des Auslenkwinkels $\phi(t)$ in CASSY}
+    \label{fig:eigenfreq_messdaten}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bilder/eigenfreq_ableitungen_messdaten.png}
+    \caption{Messung des Auslenkwinkels $\phi(t)$ (schwarz) und der Ableitungen $\dot\phi(t)$ (rot) und $\ddot\phi(t)$ (blau) in CASSY}
+    \label{fig:eigenfreq_abl_messdaten}
+\end{figure}
+
+\subsubsection{Diskussion}
+Der Mittelwert von $T$ ergibt sich aus der Tabelle \ref{tab:schwingung_dämpfungen} als $T = 1.716 \pm 0.014s$. Somit ergibt sich $f$ unter Berücksichtigung der
+Fehlerforpflantzung als $0.583 \pm 0.005Hz$. Für das Dämpfungsdekrement $k$ folgt $k = 0.75 \pm 0.01$. Somit beträgt die Abklingkonstante $\delta = 0.17 \pm 0.01s^{-1}$.
+Außerdem folgt auch $\delta_{CASSY} = 0.17 \pm 0.01s^{-1}$.
+
+Es ist somit ersichtlich, dass die beiden Werte recht gut übereinstimmen. Sowohl der händisch berechnete Wert, als auch der von CASSY bestimmte Wert liegen in Grenzen der
+Standardabeichung.
 
 \subsection{Schwingung bei verschiedenen Dämpfungen}
 \subsubsection{Durchführung}
@@ -274,10 +322,15 @@ bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen wer
     \label{tab:dämpfungen_strom}
 \end{table}
 
-\subsubsection{Auswertung}
+\subsubsection{Diskussion}
+
 
 \subsection{Zusammenhang Erregerfrequenz und Erregerspannung}
 \subsubsection{Durchführung}
+Das Ziel dieses Experimentes ist die Ermittlung des Zusammenhangs zwischen Erregerfreqzenz und Erregerspannung.
+Dazu wurde die Spannung am Elektomotor variiert und die Frequenz des Systems bei jeder Spannung einzeln ausgemessen.
+Das Messen der Frequenz erfolgt genauso wie in Abschnitt \ref{ssec:eigenfrequenz} beschrieben.
+
 \subsubsection{Messdaten}
 \begin{table}[H]
     \centering
@@ -308,15 +361,15 @@ bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen wer
     $U$ (V) $\pm$ 0.05 & $f$ (Hz) $\pm$ 0.01 \\
     \hline
     $6.00 \pm 0.05$ & $0.43 \pm 0.01$ \\
-    $7 \pm 0.05$ & $0.53 \pm 0.01$ \\
-    $8 \pm 0.05$ & $0.62 \pm 0.01$ \\
-    $9 \pm 0.05$ & $0.68 \pm 0.01$ \\
+    $7.00 \pm 0.05$ & $0.53 \pm 0.01$ \\
+    $8.00 \pm 0.05$ & $0.62 \pm 0.01$ \\
+    $9.00 \pm 0.05$ & $0.68 \pm 0.01$ \\
     $9.99 \pm 0.05$ & $0.80 \pm 0.02$ \\
     $11.01 \pm 0.05$ & $0.89 \pm 0.02$ \\
     $11.98 \pm 0.05$ & $0.98 \pm 0.02$ \\
     $12.99 \pm 0.05$ & $1.07 \pm 0.02$ \\
-    $14 \pm 0.05$ & $1.17 \pm 0.02$ \\
-    $15 \pm 0.05$ & $1.26 \pm 0.03$ \\
+    $14.00 \pm 0.05$ & $1.17 \pm 0.02$ \\
+    $15.00 \pm 0.05$ & $1.26 \pm 0.03$ \\
     \hline
     \end{tabular}
     \caption{Zusammenhang Erregerfrequenz und Erregerspannung}
@@ -327,9 +380,16 @@ bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen wer
     \centering
     \input{bilder/erregerfrequenz_erregerspannung_linear_fit.tex}
     \caption{Erregerfrequenz zu Erregerspannung mit linearem Fit $f(U)$}
+    \label{fig:erreger_fit}
 \end{figure}
 
-\subsubsection{Auswertung}
+In Abbildung \ref{fig:erreger_fit} wird der Zusammenhang mit der Funktion $f(U) = 0.092 \cdot U - 0.1239$ approximiert.
+
+\subsubsection{Diskussion}
+Die Ungenauigkeit bei der Spannung wurde mit $\sigma_{U} = 0.05 V$ angenommen. Mit der Fehlerforpflantzung wurden dann die
+Ungenauigkeiten für die Frequenzen berechnet.
+Es zeigt sich in Abbildung \ref{fig:erreger_fit}, dass der Zusammenhang zwischen Erregerfrequenz und Erregerspannung sehr gut linear approximiert
+werden kann. Es gibt zwar einen Ausreißer, aber diesen erkläre ich mir über die Messungenauigkeit.
 
 \subsection{Resonanzkurve}
 \subsubsection{Durchführung}
@@ -369,9 +429,9 @@ und Erregerspannung kann die Resonanzkurve bestimmt werden.
     \caption{Resonanzkurve}
 \end{figure}
 
-\subsubsection{Auswertung}
+\subsubsection{Diskussion}
 Die Resonanzkurve hat, wie man sieht eine glockenähnliche Gestalt, welche der Theorie nahe liegt. Bei $f=0,58$(Hz) haben wir den höhsten Wert,
-welcher nahe der Eigenfrequenz ist und somit stimmt das mit dem Versuch aus Kapitel \ref{ssec:eigenfrequenz} überein.
+welcher nahe der Eigenfrequenz ist und somit stimmt das mit dem Versuch aus Abschnitt \ref{ssec:eigenfrequenz} überein.
 
 \section{Anhang}
 \subsection{Verwendete Geräte}
