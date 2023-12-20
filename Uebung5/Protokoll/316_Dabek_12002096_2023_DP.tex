@@ -127,8 +127,7 @@ Die einzelnen Terme stehen für:
 Das Trägheitsmoment wird definiert als $J = \rho \cdot \int_{V}^{} r^{2} dV$.
 \cite{w:traegheit}
 
-\subsection{Frei schwingendes Drehpendel}
-\subsubsection{Freie Schwingung}
+\subsection{Freie Schwingung}
 Die freie Schwingung findet statt, wenn der Dämpfungsterm und Erregerterm wegfallen, d.h. $r = 0$ und $M_{0} = 0$.
 Die Differentialgleichung lautet dann:
 \begin{gather} \label{eq:freie_schwingung}
@@ -158,7 +157,28 @@ ergibt sich die Lösung:
 \begin{gather} \label{eq:freie_schwingung_loesung}
     \varphi(t) = \varphi_{0} \cdot cos(\omega_{0} \cdot t)
 \end{gather}
+
+\subsection{Frei schwingendes Drehpendel}
+Die Differentialgleichung des frei schwingenden Pendels lautet:
+
+\begin{gather} \label{eq:ged_schw_diff}
+    J \cdot \ddot \varphi(t) + r \cdot \dot \varphi(t) + D \cdot \varphi(t) = 0 \\
+    \ddot \varphi(t) + \frac{r}{J} \cdot \dot \varphi(t) + \frac{D}{J} \cdot \varphi(t) = 0
+\end{gather}
+
+\noindent Mit $\delta = \frac{r}{2 \cdot J}$ und $\omega_0 = \frac{D}{J}$ ergibt sich folgende Form:
+
+\begin{gather} \label{eq:ged_schw_delta_omega}
+    \ddot \varphi(t) + 2 \cdot \delta \cdot \dot \varphi(t) + \omega_0^2 \cdot \varphi(t) = 0
+\end{gather}
+
+Die Lösung erfolgt durch den Exponentialansatz und ergibt $\varphi(t) = A_1 \cdot e^{\lambda_1} + A_2 \cdot e^{\lambda_2}$, wobei
+$\lambda_{1,2} = \delta \pm \sqrt{\delta^2 - \omega_0^2}$.
+
 \subsubsection{Gedämpfte Schwingung}
+Im Fall, dass $\delta^2 < \omega_0^2$ ergibt sich der Fall der gedämpften Schwingung. Hier ist der Term der Wurzel imaginär und
+über die Eulersche Identität und den Anfangsbedingungen $\varphi(t = 0) = \varphi_0$ und $\dot \varphi(t = 0) = 0$
+ergibt sich als Lösung $\varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (cos(\omega_0 \cdot t) + \frac{\delta}{\omega_0} \cdot sin(\omega_0 \cdot t))$
 
 \begin{figure}[H]
     \centering
