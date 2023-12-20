@@ -104,8 +104,8 @@ ermöglicht die Bestimmung der Eigenschaften des Systems bei verschiedenen Dämp
 Die Versuche umfassen die Bestimmung der Eigenfrequenz des Systems, die Messung an freien und erzwungenen Schwingungen bei verschiedenen Dämpfungen,
 sowie auch die Bestimmung einer Resonanzkurve.
 
-\section{Theoretische Grundlagen des Pendels}
-\subsection{Differentialgleichung}
+\section{Theoretische Grundlagen}
+\subsection{Differentialgleichung des Pendels}
 Die mathematische Beschreibung des Pendels erfolgt über eine Gleichung der Drehmomente, welche durch die folgende
 Differentialgleichung 2. Ordnung beschrieben werden kann:
 \begin{gather} \label{eq:pendel}
@@ -127,7 +127,7 @@ Die einzelnen Terme stehen für:
 Das Trägheitsmoment wird definiert als $J = \rho \cdot \int_{V}^{} r^{2} dV$.
 \cite{w:traegheit}
 
-\subsection{Die Lösung der Differentialgleichung}
+\subsection{Frei schwingendes Drehpendel}
 \subsubsection{Freie Schwingung}
 Die freie Schwingung findet statt, wenn der Dämpfungsterm und Erregerterm wegfallen, d.h. $r = 0$ und $M_{0} = 0$.
 Die Differentialgleichung lautet dann:
@@ -185,8 +185,31 @@ ergibt sich die Lösung:
     \label{fig:kriech}
 \end{figure}
 
-\subsection{Die Lösung der inhomogenen Differentialgleichung}
+\subsection{Erregtes Drehpendel}
+\subsubsection{Lösung der Differentialgleichung}
+Die Differentialgleichung für ein erregtes Drehpendel lautet:
+\begin{gather} \label{eq:schwingung_partikulaere_loesung}
+    J \cdot \ddot \varphi(t) + r \cdot \dot \varphi(t) + D \cdot \varphi(t) = M_0 \cdot cos(\omega_E \cdot t)
+\end{gather}
+Die Lösung $\varphi(t) = \varphi_h(t) + \varphi_p(t)$ setzt sich zusammen aus der Lösung der homogenen Differentialgleichung $\varphi_h(t)$ und der partikulären Lösung $\varphi_p(t)$ der inhomogenen
+Differentialgleichung. Aus dem Ansatz mit Winkelfunktionen ergibt sich
+$\varphi_p(t) = A \cdot cos(\omega_E \cdot t + \theta)$ und $\theta = \frac{2 \cdot \delta \cdot \omega_E}{\omega_0^2 - \omega_E^2}$.
+
 \subsubsection{Resonanzkurven}
+Für die Resonanzkurve gilt:
+
+\begin{gather} \label{eq:resonanzkurve}
+    A(\omega) = \frac{M_0}{\sqrt{(\omega_0^2 - \omega_E^2)^2 + (2 \cdot \delta \cdot \omega_E)^2}}
+    = \frac{\varphi_0}{\sqrt{(1 - (\frac{\omega_E}{\omega_0})^2)^2 + (\frac{2 \cdot \delta \cdot \omega_E}{\omega_0^2})^2}}
+\end{gather}
+
+Da nach dem Einschwingvorgang die partikuläre Lösung $\varphi_p$ dominiert, gilt für ausreichend große $t$ $\varphi(t) \approx \varphi_p$.
+
+\subsection{Wirbelstrombremse}
+Aus dem Faradayschen Gesetz $U = \oint \vec{E} \cdot d \vec{r} = -\frac{d}{dt} \iint_S \vec{B} \cdot d \vec{A}$ folgt die Induzierung der Spannung,
+falls sich eine Platte mit Geschwindigkeit $v$ und der Länge $L$ in einem Magentfeld $B$ bewegt. Die Induzierte Spannung hat die Größe $U = v \cdot B \cdot L$.
+Für die Leistung folgt Leistung $P = U \cdot I = \frac{v^2 \cdot L^2 \cdot B^2}{R}$. Mit der Verknüpfung $P = \frac{dE}{dt} = F \cdot \frac{dx}{dt} = F \cdot v$ folgt
+für die resultierende Kraft $F = \frac{I^2 \cdot L \cdot v}{R}$.
 
 \section{Versuchsaufbau}
 Der Versuchsaufbau bestand aus einem Drehpendel nach Pohl der Firma Leybold \ref{fig:versuchsaufbau}.
@@ -447,4 +470,4 @@ welcher nahe der Eigenfrequenz ist und somit stimmt das mit dem Versuch aus Absc
 % \printbibliography[type=book,heading=subbibliography,title={\indent \textit{Bücher}}]
 \printbibliography[type=online,heading=subbibliography,title={\indent \textit{Webseiten}}]
 
-\end{document}
+\end{document}          
