@@ -178,7 +178,11 @@ $\lambda_{1,2} = \delta \pm \sqrt{\delta^2 - \omega_0^2}$.
 \subsubsection{Gedämpfte Schwingung}
 Im Fall, dass $\delta^2 < \omega_0^2$ ergibt sich der Fall der gedämpften Schwingung. Hier ist der Term der Wurzel imaginär und
 über die Eulersche Identität und den Anfangsbedingungen $\varphi(t = 0) = \varphi_0$ und $\dot \varphi(t = 0) = 0$
-ergibt sich als Lösung $\varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (cos(\omega_0 \cdot t) + \frac{\delta}{\omega_0} \cdot sin(\omega_0 \cdot t))$
+ergibt sich als Lösung 
+
+\begin{gather} \label{eq:schwingung_partikulaere_loesung}
+    \varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (cos(\omega_0 \cdot t) + \frac{\delta}{\omega_0} \cdot sin(\omega_0 \cdot t))
+\end{gather}
 
 \begin{figure}[H]
     \centering
@@ -188,10 +192,13 @@ ergibt sich als Lösung $\varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot 
 \end{figure}
 
 \subsubsection{Aperiodischer Grenzfall}
-Im Fall, dass $\delta^2 = \omega_0^2$ ergibt sich der Fall des aperiodischen Grenzfalls. Hier ist $\lambda_1 = \lambda_2 = \delta$.
+Im Fall, dass $\delta^2 = \omega_0^2$ ergibt sich der aperiodische Grenzfall. Hier ist $\lambda_1 = \lambda_2 = \delta$.
 Es muss zusätzlich zum Ansatz $\varphi(t) = A \cdot e^{\lambda \cdot t}$ auch der Ansatz $\varphi(t) = A \cdot t \cdot e^{\lambda \cdot t}$
 gewählt werden. Mit den Anfangsbedingungen $\varphi(t = 0) = \varphi_0$ und $\dot \varphi(t = 0) = 0$ ist die Lösung ist dann
-$\varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (1 + \delta \cdot t)$
+
+\begin{gather} \label{eq:schwingung_partikulaere_loesung}
+    \varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (1 + \delta \cdot t)
+\end{gather}
 
 \begin{figure}[H]
     \centering
@@ -201,6 +208,13 @@ $\varphi(t) = \varphi_0 \cdot e^{-\delta \cdot t} \cdot (1 + \delta \cdot t)$
 \end{figure}
 
 \subsubsection{Kriechfall}
+Im Fall, dass $\delta^2 > \omega_0^2$ ergibt sich der Kriechfall. Da $\lambda$ in dem Fall reell ist, gibt es keine Schwingung
+Mit den Anfangsbedingungen $\varphi(t = 0) = \varphi_0$ und $\dot \varphi(t = 0) = 0$ ist die Lösung ist dann
+
+
+\begin{gather} \label{eq:schwingung_partikulaere_loesung}
+    \varphi(t) = \frac{\varphi_0}{\lambda_1 - \lambda_2} \cdot (\lambda_1 \cdot e^{- \lambda_2 \cdot t} - \lambda_2 \cdot e^{- \lambda_1 \cdot t})
+\end{gather}
 
 \begin{figure}[H]
     \centering
