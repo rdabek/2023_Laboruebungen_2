@@ -9,13 +9,14 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{caption}                    % for captions
-\usepackage[ngerman]{babel}             % german language support
-\usepackage[T1]{fontenc}                % fix non asci letter encoding
-\usepackage[nottoc,numbib]{tocbibind}   % for numbering list of figures
-                                        % and images and equations
-% \usepackage[titles]{tocloft}            % for custom list of equations
-\usepackage[left=3cm,right=3cm]{geometry} % make page wider
+\usepackage{caption}                        % for captions
+\usepackage[ngerman]{babel}                 % german language support
+\usepackage[T1]{fontenc}                    % fix non asci letter encoding
+\usepackage[nottoc,numbib]{tocbibind}       % for numbering list of figures
+                                            % and images and equations
+% \usepackage[titles]{tocloft}              % for custom list of equations
+\usepackage[left=3cm,right=3cm]{geometry}   % make page wider
+\usepackage{float}                          % reposition images and tables
 % ----------------------------------------------------------------
 
 % ----------------------------------------------------------------
@@ -173,14 +174,14 @@ nach dem Start einer Aufzeichnung die Bewegung des Pendelkörpers
 über den BMW (Bewegungsmesswandler). Diese Daten wurden dann in der CASSY-Software
 und in Microsoft Excel ausgewertet.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel.jpg}
     \caption{Ein Foto des Versuchsaufbaus}
     \label{fig:versuchsaufbau}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/sensor_cassy.jpg}
     \caption{Ein Foto der Schnittstelle}
@@ -193,7 +194,7 @@ Rückstellmoment. Außerdem kann das Pendel über einen Hebel, der exzentrisch a
 elektrischen Motor befestigt ist, angetrieben werden. Letzendlich kann mit einer Wirbelstrombremse
 eine zusätzliche Dämpfung eingestellt werden.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel_pohl.png}
     \caption{Das Pendel nach Pohl \cite{w:pohl_drehpendel}}
@@ -214,7 +215,7 @@ Die Abklingkonstante $\delta$ konnte mittels CASSY aus dem Wert $B$ folgend
 bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen werden konnte.
 \subsubsection{Messdaten}
 Die Messdaten entsprechen der Tabelle
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
     \hline
@@ -239,7 +240,7 @@ asd
 \subsubsection{Messdaten}
 Die Messdaten entsprechen der Tabelle
 
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
     \hline
@@ -261,7 +262,7 @@ Die Messdaten entsprechen der Tabelle
     \label{tab:schwingung_dämpfungen}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}
     \hline
@@ -285,7 +286,7 @@ Die Messdaten entsprechen der Tabelle
 \subsubsection{Messdaten}
 Die Messdaten entsprechen der Tabelle
 
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
@@ -307,7 +308,7 @@ Die Messdaten entsprechen der Tabelle
     \label{tab:messung_erregerfrequenz_spannung}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
     \hline
@@ -333,9 +334,13 @@ Die Messdaten entsprechen der Tabelle
 
 \subsection{Resonanzkurve}
 \subsubsection{Durchführung}
+Für die Bestimmung der Resonanzkurve ist es notwendig eine Dämpfung einzustellen. Die Dämpfung soll idealerweise so gewählt werden,
+dass eine Resonanzkatastrophe vermieden wird. Danach wird der Drehwinkel des Pendels bei verschiedenen Erregerspannungen $U$ ausgemessen.
+Für die Dämpfung wurde der Strom der Wirbelstrombremse $I = 610 mA$ gewählt.
+
 \subsubsection{Messdaten}
 Die Messdaten entsprechen der Tabelle
-\begin{table}[!htb]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
