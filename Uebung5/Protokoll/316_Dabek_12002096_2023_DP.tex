@@ -8,7 +8,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{graphicx}
-\usepackage{amsmath}
 \usepackage{caption}                        % for captions
 \usepackage[ngerman]{babel}                 % german language support
 \usepackage[T1]{fontenc}                    % fix non asci letter encoding
@@ -17,6 +16,8 @@
 % \usepackage[titles]{tocloft}              % for custom list of equations
 \usepackage[left=3cm,right=3cm]{geometry}   % make page wider
 \usepackage{float}                          % reposition images and tables
+\usepackage{epstopdf}                       % if using EPS format
+\usepackage{amsmath}                        % for additional math symbols and environments
 % ----------------------------------------------------------------
 
 % ----------------------------------------------------------------
@@ -140,7 +141,7 @@ Die Lösung erfolgt durch den Exponentialansatz:
     \ddot \varphi(t) = \lambda^{2} \cdot A \cdot e^{\lambda \cdot t}
 \end{gather}
 Dadurch entsteht die charakteristische Gleichung:
-\begin{gather} \label{eq:freie_schwingung_loesung}
+\begin{gather} \label{eq:freie_schwingung_char_gl}
     \lambda^{2} + \lambda \cdot \frac{D}{J} = 0\\
     \lambda = \pm i \cdot \sqrt{\frac{D}{J}}
 \end{gather}
@@ -149,7 +150,7 @@ Somit ist $\lambda = \pm i \cdot \omega_{0}$. Die Lösung ist dann
 $\varphi(t) = A_{1} \cdot e^{-i \omega_{0} \cdot t} + A_{2} \cdot e^{i \omega_{0} \cdot t}$.
 Durch die Eulersche Identität $e^{i \cdot \varphi} = cos(\varphi) + i \cdot sin(\varphi)$ kann auf die Form
 $\varphi(t) = B_{1} \cdot cos(\omega_{0} \cdot t) + B_{2} \cdot sin(\omega_{0} \cdot t)$ umgeformt werden. Mit den Anfangsbedingungen
-\begin{gather} \label{eq:freie_schwingung_loesung}
+\begin{gather} \label{eq:freie_schwingung_anfangsbed}
     \varphi(t = 0) = \varphi_{0}\\
     \dot \varphi(t = 0) = 0
 \end{gather}
@@ -163,8 +164,6 @@ ergibt sich die Lösung:
 \subsubsection{Kriechfall}
 \subsection{Die Lösung der inhomogenen Differentialgleichung}
 \subsubsection{Resonanzkurven}
-\subsection{Schwebung}
-\clearpage
 
 \section{Versuchsaufbau}
 Der Versuchsaufbau bestand aus einem Drehpendel nach Pohl der Firma Leybold \ref{fig:versuchsaufbau}.
@@ -174,14 +173,14 @@ nach dem Start einer Aufzeichnung die Bewegung des Pendelkörpers
 über den BMW (Bewegungsmesswandler). Diese Daten wurden dann in der CASSY-Software
 und in Microsoft Excel ausgewertet.
 
-\begin{figure}[H]
+\begin{figure}[H][H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel.jpg}
     \caption{Ein Foto des Versuchsaufbaus}
     \label{fig:versuchsaufbau}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[H][H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/sensor_cassy.jpg}
     \caption{Ein Foto der Schnittstelle}
@@ -194,16 +193,15 @@ Rückstellmoment. Außerdem kann das Pendel über einen Hebel, der exzentrisch a
 elektrischen Motor befestigt ist, angetrieben werden. Letzendlich kann mit einer Wirbelstrombremse
 eine zusätzliche Dämpfung eingestellt werden.
 
-\begin{figure}[H]
+\begin{figure}[H][H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/drehpendel_pohl.png}
     \caption{Das Pendel nach Pohl \cite{w:pohl_drehpendel}}
     \label{fig:pendel}
 \end{figure}
-\clearpage
 
 \section{Versuche}
-\subsection{Bestimmung der Eigenfrequenz}
+\subsection{Bestimmung der Eigenfrequenz} \label{ssec:eigenfrequenz}
 \subsubsection{Durchführung}
 Das Ziel dieses Versuches war es die Eigenfrequenz $f$ und die Abklingkonstante $\delta$ zu
 bestimmen. Die Dämpfung sollte dabei nicht vorhanden sein, d.h. die Wirbelstrombremse
@@ -214,7 +212,6 @@ folgendermaßen berechnet: $f = \frac{n}{\Delta t}$.
 Die Abklingkonstante $\delta$ konnte mittels CASSY aus dem Wert $B$ folgend
 bestimmt werden: $\delta = \frac{1}{B}$, wobei $B$ aus der Messung abgelesen werden konnte.
 \subsubsection{Messdaten}
-Die Messdaten entsprechen der Tabelle
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -236,10 +233,8 @@ Die Messdaten entsprechen der Tabelle
 
 \subsection{Schwingung bei verschiedenen Dämpfungen}
 \subsubsection{Durchführung}
-asd
-\subsubsection{Messdaten}
-Die Messdaten entsprechen der Tabelle
 
+\subsubsection{Messdaten}
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -284,8 +279,6 @@ Die Messdaten entsprechen der Tabelle
 \subsection{Zusammenhang Erregerfrequenz und Erregerspannung}
 \subsubsection{Durchführung}
 \subsubsection{Messdaten}
-Die Messdaten entsprechen der Tabelle
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -330,16 +323,22 @@ Die Messdaten entsprechen der Tabelle
     \label{tab:erregerfrequenz_spannung}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \input{bilder/erregerfrequenz_erregerspannung_linear_fit.tex}
+    \caption{Erregerfrequenz zu Erregerspannung mit linearem Fit $f(U)$}
+\end{figure}
+
 \subsubsection{Auswertung}
 
 \subsection{Resonanzkurve}
 \subsubsection{Durchführung}
 Für die Bestimmung der Resonanzkurve ist es notwendig eine Dämpfung einzustellen. Die Dämpfung soll idealerweise so gewählt werden,
 dass eine Resonanzkatastrophe vermieden wird. Danach wird der Drehwinkel des Pendels bei verschiedenen Erregerspannungen $U$ ausgemessen.
-Für die Dämpfung wurde der Strom der Wirbelstrombremse $I = 610 mA$ gewählt.
+Für die Dämpfung wurde der Strom der Wirbelstrombremse $I = 610 mA$ gewählt. Über den annähernd linearen Zusammenhang der Erregerfrequenz
+und Erregerspannung kann die Resonanzkurve bestimmt werden.
 
 \subsubsection{Messdaten}
-Die Messdaten entsprechen der Tabelle
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -364,9 +363,15 @@ Die Messdaten entsprechen der Tabelle
     \label{tab:resonanzkurve}
 \end{table}
 
-\subsubsection{Auswertung}
+\begin{figure}[H]
+    \centering
+    \input{bilder/resonanzkurve.tex}
+    \caption{Resonanzkurve}
+\end{figure}
 
-\clearpage
+\subsubsection{Auswertung}
+Die Resonanzkurve hat, wie man sieht eine glockenähnliche Gestalt, welche der Theorie nahe liegt. Bei $f=0,58$(Hz) haben wir den höhsten Wert,
+welcher nahe der Eigenfrequenz ist und somit stimmt das mit dem Versuch aus Kapitel \ref{ssec:eigenfrequenz} überein.
 
 \section{Anhang}
 \subsection{Verwendete Geräte}

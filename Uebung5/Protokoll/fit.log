@@ -1,0 +1,104 @@
+
+
+*******************************************************************************
+Wed Dec 20 20:40:03 2023
+
+
+FIT:    data read from 'plot_data/erregerfrequenz_erregerspannung.dat'
+        format = z
+BREAK: No data to fit
+
+*******************************************************************************
+Wed Dec 20 20:44:10 2023
+
+
+FIT:    data read from 'plot_data/erregerfrequenz_erregerspannung.dat' u 1:2:4
+        format = x:z:s
+        x range restricted to [5.00000 : 16.0000]
+BREAK: No data to fit
+
+*******************************************************************************
+Wed Dec 20 20:57:43 2023
+
+
+FIT:    data read from 'plot_data/erregerfrequenz_erregerspannung.dat' using 1:2
+        format = x:z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a + b*x
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 1.2030060000e+03   0.00e+00  7.73e+00    1.000000e+00   1.000000e+00
+   5 8.0863512599e-04  -1.07e-05  7.73e-05   -1.238849e-01   9.211059e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 0.000808635
+rel. change during last iteration : -1.06585e-10
+
+degrees of freedom    (FIT_NDF)                        : 8
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0100538
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000101079
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = -0.123885        +/- 0.01205      (9.729%)
+b               = 0.0921106        +/- 0.001107     (1.202%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -0.965  1.000 
+
+
+*******************************************************************************
+Wed Dec 20 20:58:19 2023
+
+
+FIT:    data read from 'plot_data/erregerfrequenz_erregerspannung.dat' using 1:2
+        format = x:z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(U)
+	f(U) = a + b*U
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Wed Dec 20 20:58:52 2023
+
+
+FIT:    data read from 'plot_data/erregerfrequenz_erregerspannung.dat' using 1:2
+        format = x:z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a + b*x
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 1.2030060000e+03   0.00e+00  7.73e+00    1.000000e+00   1.000000e+00
+   5 8.0863512599e-04  -1.07e-05  7.73e-05   -1.238849e-01   9.211059e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 0.000808635
+rel. change during last iteration : -1.06585e-10
+
+degrees of freedom    (FIT_NDF)                        : 8
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0100538
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000101079
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = -0.123885        +/- 0.01205      (9.729%)
+b               = 0.0921106        +/- 0.001107     (1.202%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -0.965  1.000 
